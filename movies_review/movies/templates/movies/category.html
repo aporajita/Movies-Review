@@ -1,0 +1,30 @@
+{% extends "main.html"%}
+{% block title %}
+<title>Home</title>
+{% endblock %}
+
+{% block content %}
+{% load static %}
+
+<div class="container mt-5">
+
+    <div class="row justify-content-center">
+        {% for m in movies %}
+        <div class="card movie_card">
+            <img src="{{m.image.url}}"
+                class="card-img-top" alt="...">
+            <div class="card-body">
+                <i class="fas fa-play play_button" data-toggle="tooltip" data-placement="bottom"
+                    title="Play Trailer">
+                </i>
+                <h5 class="card-title">{{m.title}}</h5>
+                <span class="movie_info">2002</span>
+                <span class="movie_info float-right"><i class="fas fa-star"></i> / 10</span>
+                <a href="{% url 'snippet' m.id %}">Read more</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

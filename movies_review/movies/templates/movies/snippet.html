@@ -1,0 +1,49 @@
+{% extends "main.html"%}
+{% block title %}
+<title>Snippet</title>
+{% endblock %}
+
+{% block content %}
+{% load static %}
+
+
+<!--Section: Block Content-->
+<section class="mb-5">
+    {% for m in movies %}
+    <div class="row">
+      <div class="col-md-6 mb-4 mb-md-0">
+        <div class="container ml-5">
+        <div class="card movie_card">
+            <img src="{{m.image.url}}"
+                class="card-img-top" alt="...">
+            <div class="card-body">
+                <i class="fas fa-play play_button" data-toggle="tooltip" data-placement="bottom"
+                    title="Play Trailer">
+                </i>
+            </div>
+        </div>
+        </div>
+      </div>
+      <div class="col-md-6  mt-5">
+  
+        <h5>{{m.title}}</h5>
+        <p><span class="mr-1"><strong></strong></span></p>
+        <p class="pt-1">{{m.descricptions}}</p>
+        <div class="table-responsive">
+          <table class="table table-sm table-borderless mb-0">
+            <tbody>
+              <tr>
+                <th class="pl-0 w-25" scope="row"><strong>Year</strong></th>
+                <td>2020</td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </section>
+  <!--Section: Block Content-->
+
+{% endblock %}
